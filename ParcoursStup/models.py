@@ -1,5 +1,6 @@
 from django.db import models
 
+"""
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -37,3 +38,5 @@ class Eleve(AbstractUser):
     ecoles = models.ForeignKey(Ecole, on_delete=models.CASCADE)
     ecoles = models.ManyToManyField(Ecole)
     formations = models.ManyToManyField(Formation)
+
+"""
