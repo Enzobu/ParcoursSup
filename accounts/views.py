@@ -13,3 +13,15 @@ def signup(request):
         return redirect('index')
     
     return render(request, 'accounts/signup.html')
+
+def login_user(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        password = request.POST.get("password")
+        user = authenticate(username = name, 
+                            password = password)
+        if user:
+            login(request, user)
+            return redirect('index')
+    return render(request, 'accounts/login.html')
+        
