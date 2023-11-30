@@ -55,6 +55,7 @@ class School(models.Model):
     picture = models.ImageField(upload_to="school", blank=True, null=True)
 
     def __str__(self):
+        return f"School_{self.name}"
     
     def get_absolute_url(self):
         return reverse("school", kwargs={"slug": self.slug})
