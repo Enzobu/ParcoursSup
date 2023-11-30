@@ -6,6 +6,16 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="{% url 'index' %}">La pae d'accueil</a>
+    <br>
+    {% if user.is_authenticated %}
+        {{ user.username }}
+        <a href="{% url 'logout' %}">La déconectìon</a>
+    {% else %}
+        <a href="{% url 'login' %}">Se connecter</a>
+        <a href="{% url 'signup' %}">S'inscrire</a>
+    {% endif %}
+    <br><br>
     {% block body %}
 
     {% endblock %}
