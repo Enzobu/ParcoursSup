@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <h1>C'est l'appli la ouuuuuuu</h1>
+    <a href="/admin">L'admin ouuuu</a>
+    
+    {% for school in schools %}
+        <h2>{{ school.name }}</h2>
+        <img src="{{ school.picture.url }}" alt="{{ school.name }}">
+    {% endfor %}
+
+{% endblock %}
