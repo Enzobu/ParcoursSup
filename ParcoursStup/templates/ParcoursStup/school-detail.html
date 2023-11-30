@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block body %}    
+    <h2>{{ school.name }}</h2>
+    <h3>{{ school.description }}</h3>
+    <img src="{{ school.picture.url }}" alt="{{ school.name }}">
+{% endblock %}
