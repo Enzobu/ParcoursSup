@@ -1,20 +1,104 @@
 {% extends "base.html" %}
 
-{% block body %}
-
-<h1>S'inscrire</h1>
-<form action="" method="POST">
-    {% csrf_token %}
-    <div class="form-input">
-        <label for="name">Nom</label>
-        <input type="text" name="name" id="name">
-    </div>
-    <div class="form-input">
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" id="password">
-    </div>
-    <button type="submit">S'inscrire</button>
-</form>
-<a href="{% url 'login_user' %}">Déjà inscrit ?</a>
-
+{% block head %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'style/login/login.css' %}">
 {% endblock %}
+
+{% block body %}
+<div class="login-container">
+    <h1>S'inscrire</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-input">
+            <label for="user_type">Type d'utilisateur</label>
+            <select name="user_type" id="user_type" required>
+                <option value="student">Élève</option>
+                <option value="school">École</option>
+            </select>
+        </div>
+        <div class="form-input">
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <div class="form-input school-input-container">
+            <label for="name">Nom</label>
+            <input type="text" name="name" id="name" class="school-input">
+        </div>
+        <div class="form-input student-input-conainer">
+            <label for="first_name">Prénom</label>
+            <input type="text" name="first_name" id="first_name"  class="student-input">
+        </div>
+        <div class="form-input student-input-conainer">
+            <label for="last_name">Nom</label>
+            <input type="text" name="last_name" id="last_name" class="student-input">
+        </div>
+        <div class="form-input">
+            <label for="email">Mail</label>
+            <input type="text" name="email" id="email" required>
+        </div>
+        <div class="form-input">
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        {% comment %} Input école {% endcomment %}
+        <div class="form-input school-input-container">
+            <label for="description">Description</label>
+            <textarea name="description" id="description" class="school-input" maxlength="255"></textarea>
+            <div></div>
+            <div class="countdown-char" id="countdownChar">0 / 255</div>
+        </div>
+        <div class="form-input school-input-container">
+            <label for="address">Adresse</label>
+            <input type="text" name="address" id="address" class="school-input">
+        </div>
+        <div class="form-input school-input-container">
+            <label for="city">Ville</label>
+            <input type="text" name="city" id="city" class="school-input">
+        </div>
+        <div class="form-input school-input-container">
+            <label for="zipCode">Code postal</label>
+            <input type="number" name="zipCode" id="zipCode" class="school-input">
+        </div>
+        <div class="form-input school-input-container">
+            <label for="region">Région</label>
+            <input type="text" name="region" id="region" class="school-input">
+        </div>
+        <div class="form-input school-input-container">
+            <label for="department">Département</label>
+            <input type="text" name="department" id="department" class="school-input">
+        </div>
+        <div class="form-input school-input-container">
+            <label for="picture">Image</label>
+            <input type="file" name="picture" id="picture" class="school-input">
+        </div>
+
+
+        {% comment %} Input élève {% endcomment %}
+        <div class="form-input student-input-conainer">
+            <label for="birthday">Date de naissance</label>
+            <input type="date" name="birthday" id="birthday" class="student-input">
+        </div>
+        <div class="form-input student-input-conainer">
+            <label for="report_card">Dernier bulletin</label>
+            <input type="file" name="report_card" id="report_card" class="student-input">
+        </div>
+        <button type="submit">S'inscrire</button>
+    </form>
+    <a href="{% url 'login' %}">Déjà inscrit ?</a>
+    <script src="{% static 'script/formSignup.js' %}"></script>
+</div>
+{% endblock %}
+
+
+
+
+
+{% comment %} <div class="form-input">
+    <label for="cover_letter">Lettre de motivation</label>
+    <input type="text" name="cover_letter" id="cover_letter">
+</div>
+<div class="form-input">
+    <label for="CV">CV</label>
+    <input type="file" name="CV" id="CV">
+</div> {% endcomment %}
