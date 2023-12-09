@@ -43,15 +43,14 @@ class Eleve(models.Model):
 
 class School(models.Model):
     name = models.CharField(max_length=120)
-    description = models.TextField(blank=True)
+    description = models.CharField(max_length=255, null=True)
     slug = models.SlugField(max_length=126)
     mail = models.CharField(max_length=255)
-    password = models.CharField(max_length=180)
     address = models.CharField(max_length=255)
     city = models.CharField(max_length=80)
     region = models.CharField(max_length=60)
     department = models.CharField(max_length=50)
-    zipCode = models.CharField(max_length=15)
+    zipCode = models.IntegerField(max_length=15)
     picture = models.ImageField(upload_to="school", blank=True, null=True)
 
     def __str__(self):
