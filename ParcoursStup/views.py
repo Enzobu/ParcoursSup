@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render, get_object_or_404  
 
-from ParcoursStup.models import School
-# Create your views here.
+from ParcoursStup.models import School, Formation
+from accounts.models import CustomUsers, UserFormation
 
 def index(request):
     schools = School.objects.all()
