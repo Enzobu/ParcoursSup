@@ -55,3 +55,8 @@ def add_formation(request):
     schools = School.objects.all()
     return render(request, "ParcoursStup/add-formation.html", context={"schools": schools})
 
+def remove_formation(request, slug):
+    formation = Formation.objects.get(slug=slug)
+    formation.delete()
+    return redirect('formation')
+
