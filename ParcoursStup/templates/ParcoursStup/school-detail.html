@@ -1,7 +1,37 @@
 {% extends "base.html" %}
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style/school-detail/school-detail.css' %}">
+{% endblock %}
 
-{% block body %}    
-    <h2>{{ school.name }}</h2>
-    <h3>{{ school.description }}</h3>
-    <img src="{{ school.picture.url }}" alt="{{ school.name }}">
+{% block body %} 
+    <div class="school-detail">
+        <div class="description">
+            <img src="{{ school.picture.url }}" alt="{{ school.name }}">
+            <h2>{{ school.name }}</h2>
+            <h3>{{ school.description }}</h3>
+        </div>
+        <div class="formations-container">
+            <h2 class="title">Les formation proposées par cette école :</h2>
+            <div class="formations">
+
+            {% for formation in formations %}
+                {% if formation.school == school %}
+                    <div class="formation">
+                        <div class="top">
+                            <h3 class="title">{{ formation.name }}</h3>
+                            {% if user.user_type == 'student' %}
+                                <a href="{{ formation.get_postuler_url }}" class="postuler">Je postule !</a>
+                            {% endif %}
+                        </div>
+                        <p class="description">{{ formation.description }}</p>
+                    </div>
+                {% endif %}
+                        
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
 {% endblock %}
