@@ -47,8 +47,29 @@ class School(models.Model):
         return f"School_{self.name}"
     
     def get_absolute_url(self):
+        # return reverse("school", kwargs={"slug": self.slug})
         return f"school/{self.slug}/"
     
     def get_complete_address(self):
         return f"{self.address}, {self.zipCode} {self.city}"
     
+class Formation(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    duration = models.IntegerField()
+    slug = models.SlugField(max_length=126)
+    diploma = models.CharField(max_length=120)
+    skills = models.TextField()
+    cost = models.DecimalField(max_digits=10, decimal_places=2)
+    school = models.ForeignKey(School, on_delete=models.CASCADE, related_name='formationsSchool', null=True)
+
+    def __str__(self):
+        return f"Formation_{self.name}"
+    
+    def get_absolute_url(self):
+        # return reverse("school", kwargs={"slug": self.slug})
+        return f"remove-formation/{self.slug}/"
+    
+    def get_postuler_url(self):
+        # return reverse("school", kwargs={"slug": self.slug})
+        return f"/postuler/{self.slug}/"
