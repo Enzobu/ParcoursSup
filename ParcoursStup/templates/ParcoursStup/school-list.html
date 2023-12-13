@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style/school-list/school-list.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="school-list">
+    <h1>Liste des écoles</h1>
+    {% for school in schools %}
+        <a href="{{ school.get_absolute_url }}" class="school-link">
+            <div class="school">
+                <div class="bandeau">
+                    <img src="{{ school.picture.url }}" alt="{{ school.name }}">
+                </div>
+                <div class="corps">
+                    <div class="description">Description : {{ school.description }}</div>
+                    <div class="lieu">{{ school.get_complete_address }}</div>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+{% endblock %}
