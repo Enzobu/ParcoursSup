@@ -17,3 +17,9 @@ def school_detail(request, slug):
         "school": school,
         "formations" : formations})
 
+def postuler(request, slug, formation):
+    schools = School.objects.all()  
+    # school = get_object_or_404(School, slug=slug)
+    # return render(request, "ParcoursStup/school-detail.html", context={"school": school})
+    return render(request, "ParcoursStup/postuler.html", context={"schools": schools})
+
