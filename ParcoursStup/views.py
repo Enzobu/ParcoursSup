@@ -13,3 +13,7 @@ def school_list(request):
 def school_detail(request, slug):
     formations = Formation.objects.all()
     school = get_object_or_404(School, slug=slug)
+    return render(request, "ParcoursStup/school-detail.html", context={
+        "school": school,
+        "formations" : formations})
+
