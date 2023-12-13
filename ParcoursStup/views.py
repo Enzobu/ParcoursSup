@@ -6,6 +6,9 @@ from accounts.models import CustomUsers, UserFormation
 def index(request):
     return render(request, "ParcoursStup/index.html")
 
+def school_list(request):
+    schools = School.objects.all()
+    return render(request, "ParcoursStup/school-list.html", context={"schools": schools})
 
 def school_detail(request, slug):
     formations = Formation.objects.all()
