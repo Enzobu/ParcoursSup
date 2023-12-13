@@ -15,15 +15,6 @@ class Ecole(models.Model):
     codePostal = models.CharField(max_length=15)
     secteur = models.CharField(max_length=50)
 
-class Formation(models.Model):
-    nom = models.CharField(max_length=100)
-    description = models.TextField()
-    duree = models.IntegerField()
-    diplome = models.CharField(max_length=120)
-    competencesRequises = models.TextField()
-    cout = models.DecimalField(max_digits=10, decimal_places=2)
-    # ecoles = models.ManyToManyField(Ecole)
-
 class Eleve(models.Model):
     nom = models.CharField(max_length=80)
     prenom = models.CharField(max_length=80)
@@ -40,7 +31,6 @@ class Eleve(models.Model):
 
 """
 
-
 class School(models.Model):
     name = models.CharField(max_length=120)
     description = models.CharField(max_length=255, null=True)
@@ -50,12 +40,15 @@ class School(models.Model):
     city = models.CharField(max_length=80)
     region = models.CharField(max_length=60)
     department = models.CharField(max_length=50)
-    zipCode = models.IntegerField(max_length=15)
+    zipCode = models.IntegerField()
     picture = models.ImageField(upload_to="school", blank=True, null=True)
 
     def __str__(self):
         return f"School_{self.name}"
     
     def get_absolute_url(self):
-        return reverse("school", kwargs={"slug": self.slug})
+        return f"school/{self.slug}/"
+    
+    def get_complete_address(self):
+        return f"{self.address}, {self.zipCode} {self.city}"
     
