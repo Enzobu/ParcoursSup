@@ -17,6 +17,9 @@ class UserFormation(models.Model):
     formation = models.ForeignKey(Formation, on_delete=models.CASCADE, related_name='UserFormationFormation')
     coverLettre = models.TextField()
 
+    def __str__(self):
+        return f"{self.userStudent}_{self.formation}"
+
 
 # cover_letter = models.TextField()
 # CV = models.FileField(upload_to="cv", blank=True, null=True)
