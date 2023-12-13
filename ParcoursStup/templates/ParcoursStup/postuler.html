@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style/postuler/postuler.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="postuler">
+        <h1>Postuler</h1>
+        <form action="" method="POST" class="postuler-form">
+            {% csrf_token %}
+            <div class="form-input">
+                <label for="skills">Lettre de motivation</label>
+                <textarea type="text" name="skills" id="skills"></textarea>
+            </div>
+            <input type="hidden" name="user" id="user" value="{{ user.id }}">
+            <button type="submit">Ajouter</button>
+        </form>
+    </div>
+{% endblock %}
