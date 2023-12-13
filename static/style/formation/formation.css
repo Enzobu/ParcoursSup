@@ -1,0 +1,63 @@
+.body .formations-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  gap: 4rem;
+}
+.body .formations-container h1 {
+  text-align: center;
+  width: 100%;
+}
+.body .formations-container .ajouter-formation {
+  padding: 0.35rem 0.6rem;
+  border-radius: 15px;
+  border: solid 1px #3ec2ff;
+  transition: 0.25s;
+  background: #3ec2ff;
+  color: #ffffff;
+}
+.body .formations-container .ajouter-formation:hover {
+  color: #000000;
+  background: none;
+}
+.body .formations-container .formations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+.body .formations-container .formations .formation {
+  border: solid 1px #bdbdbd;
+  border-radius: 10px;
+  transition: 0.15s;
+  box-shadow: 0 0 5px #ddd;
+  width: 100%;
+  min-height: 10rem;
+}
+.body .formations-container .formations .formation .top {
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: solid 1px #ddd;
+}
+.body .formations-container .formations .formation .top a {
+  padding: 0.35rem 0.6rem;
+  border-radius: 15px;
+  border: solid 1px #ff0000;
+  transition: 0.25s;
+  background: none;
+  color: #ff0000;
+}
+.body .formations-container .formations .formation .top a:hover {
+  color: #ffffff;
+  background: #ff0000;
+}
+.body .formations-container .formations .formation .description {
+  padding: 0.5rem;
+  text-align: justify;
+}/*# sourceMappingURL=formation.css.map */
