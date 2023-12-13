@@ -26,14 +26,7 @@ def signup(request):
                                             birthday = birthday,
                                             report_card = report_card)
 
-        elif user_type == 'school':
-            username = request.POST.get("username")
-            password = request.POST.get("password")
-
-            user = User.objects.create_user(user_type = user_type,
-                                            username = username,
-                                            password = password,)
-
+        elif user_type == 'school':            
             name = request.POST.get("name")
             description = request.POST.get("description")
             slug = request.POST.get("name")
@@ -44,8 +37,9 @@ def signup(request):
             department = request.POST.get("department")
             zipCode = request.POST.get("zipCode")
             picture = request.POST.get("picture")
-
-            school = School(name = name,
+            # picture = request.FILES["picture"]
+            
+            school = School( name = name,
                             description = description,
                             slug = slug,
                             mail = mail,
@@ -56,11 +50,19 @@ def signup(request):
                             zipCode = zipCode,
                             picture = picture)
             school.save()
-            print(username+', '+password+', '+name+', '+description+', '+slug+', '+mail+', '+address+', '+city+', '+region+', '+department+', '+zipCode+', '+picture)
+        
+            username = request.POST.get("username")
+            password = request.POST.get("password")
+
+            user = User.objects.create_user(school = school,
+                                            user_type = user_type,
+                                            username = username,
+                                            password = password,)
+            user.save()
 
         login(request, user)
+
         return redirect('index')
-    
     return render(request, 'accounts/signup.html')
 
 def login_user(request):
