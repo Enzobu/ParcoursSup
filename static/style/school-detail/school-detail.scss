@@ -1,0 +1,81 @@
+.body {
+    & .school-detail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+        gap: 4rem;
+        
+        & .description {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            gap: 2rem;
+
+            & h3 {
+                text-align: justify;
+            }
+        }
+        & .formations-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            gap: 4rem;
+
+            & h2.title {
+                text-align: start;
+                width: 100%;
+            }
+            & .formations {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 3rem;
+                width: 100%;
+
+                & .formation {
+                    border: solid 1px #bdbdbd;
+                    border-radius: 10px;
+                    transition: .15s;
+                    box-shadow: 0 0 5px #ddd;
+                    width: 100%;
+                    min-height: 10rem;
+                    
+                    & .top {
+                        padding: .5rem 1.5rem;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        border-bottom: solid 1px #ddd;
+
+                        & .postuler {
+                            padding: .35rem .6rem;
+                            border-radius: 15px;
+                            border: solid 1px #3ec2ff;
+                            transition: .25s;
+                            background: #3ec2ff;
+                            color: #ffffff;
+
+                            &:hover {
+                                color: #000000;
+                                background: none;
+                            }
+                        }
+                    }
+                    & .description {
+                        padding: .5rem;
+                        text-align: justify;
+                    }
+                }
+            }
+        }
+    }
+}

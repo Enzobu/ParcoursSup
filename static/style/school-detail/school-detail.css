@@ -1,0 +1,72 @@
+.body .school-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  gap: 4rem;
+}
+.body .school-detail .description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  gap: 2rem;
+}
+.body .school-detail .description h3 {
+  text-align: justify;
+}
+.body .school-detail .formations-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  gap: 4rem;
+}
+.body .school-detail .formations-container h2.title {
+  text-align: start;
+  width: 100%;
+}
+.body .school-detail .formations-container .formations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+.body .school-detail .formations-container .formations .formation {
+  border: solid 1px #bdbdbd;
+  border-radius: 10px;
+  transition: 0.15s;
+  box-shadow: 0 0 5px #ddd;
+  width: 100%;
+  min-height: 10rem;
+}
+.body .school-detail .formations-container .formations .formation .top {
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: solid 1px #ddd;
+}
+.body .school-detail .formations-container .formations .formation .top .postuler {
+  padding: 0.35rem 0.6rem;
+  border-radius: 15px;
+  border: solid 1px #3ec2ff;
+  transition: 0.25s;
+  background: #3ec2ff;
+  color: #ffffff;
+}
+.body .school-detail .formations-container .formations .formation .top .postuler:hover {
+  color: #000000;
+  background: none;
+}
+.body .school-detail .formations-container .formations .formation .description {
+  padding: 0.5rem;
+  text-align: justify;
+}/*# sourceMappingURL=school-detail.css.map */
