@@ -60,3 +60,16 @@ def remove_formation(request, slug):
     formation.delete()
     return redirect('formation')
 
+def postuler(request, slug):
+    if request.method == 'POST':
+        formation_id = Formation.objects.get(slug=slug)
+        user_id = CustomUsers.objects.get(id=request.POST.get("user"))
+
+        userFormation = UserFormation(
+            userStudent = user_id,
+            formation = formation_id
+        )
+
+        userFormation.save()
+        return redirect('formation')
+    return render(request, 'ParcoursStup/postuler.html')
