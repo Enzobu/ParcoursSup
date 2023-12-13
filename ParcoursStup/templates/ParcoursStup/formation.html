@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style/formation/formation.css' %}">
+{% endblock %}
+
+{% block body %} 
+   <div class="formations-container">
+      <h1>Mes formations</h1>
+      {% if user.user_type == 'school' %}
+         <a href="{% url 'add_formation' %}" class="ajouter-formation">Ajouter une formation</a>
+      {% endif %}
+      <div class="formations">
+
+
+
+         {% if user.user_type == 'school' %}
+            {% for formation in formations %}
+               {% if formation.school == user.school %}
+                  <div class="formation">
+                     <div class="top">
+                        <h3 class="title">{{ formation.name }}</h3>
+                        <a href="{{ formation.get_absolute_url }}">Supprimer</a>
+                     </div>
+                     <p class="description">{{ formation.description }}</p>
+                  </div>
+               {% endif %}
+            {% endfor %}
+         {% endif %}
+
+
+         {% if user.user_type == 'student' %}
+            {% for userFormation in userFormations %}
+               {% if user.id == userFormation.userStudent_id %}
+                  {% for formation in formations %}
+                     {% if formation.id == userFormation.formation_id %}
+                        <div class="formation">
+                           <div class="top">
+                              <h3 class="title">{{ formation.name }}</h3>
+                           </div>
+                           <p class="description">{{ formation.description }}</p>
+                        </div>
+                     {% endif %}
+                  {% endfor %}
+               {% endif %}
+            {% endfor %}
+         {% endif %}
+
+
+
+      </div>
+   </div>
+{% endblock %}
