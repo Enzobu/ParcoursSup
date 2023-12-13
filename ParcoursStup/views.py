@@ -23,3 +23,9 @@ def postuler(request, slug, formation):
     # return render(request, "ParcoursStup/school-detail.html", context={"school": school})
     return render(request, "ParcoursStup/postuler.html", context={"schools": schools})
 
+def formation(request):
+    formations = Formation.objects.all()
+    userFormations = UserFormation.objects.all()
+    return render(request, "ParcoursStup/formation.html", context={"formations": formations,
+                                                                   "userFormations": userFormations})
+
